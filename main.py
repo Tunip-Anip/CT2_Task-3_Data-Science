@@ -17,6 +17,7 @@ def main_menu():
             time.sleep(1)
         elif choice == '2':
             tableInflation()
+            time.sleep(1)
         if choice == '3':
            graphCrime()
         elif choice == '4':

@@ -47,6 +47,8 @@ def tableInflation():
     print(Inflation)
     
 def filterDataCrime(query):
-    Crime.loc[query]
+    global specific_rows
+    specific_rows = Crime[Crime['Years'].str.contains(query)]
+
 def filterDataInflation(query):
     Inflation.loc[query]

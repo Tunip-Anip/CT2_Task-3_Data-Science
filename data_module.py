@@ -25,7 +25,6 @@ def graphInflation():
         ylabel= 'Annual Change (%)',
         xlabel= 'Date per Quarters',
                )
-    plt.xlim(-1, 37)
     plt.show()
 
 
@@ -47,3 +46,7 @@ def tableCrime():
 def tableInflation():
     print(Inflation)
     
+def filterDataCrime(query):
+    Crime.loc[query]
+def filterDataInflation(query):
+    Inflation.loc[query]

@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.transforms as mtransforms
+import time
 
 
 
@@ -47,8 +48,18 @@ def tableInflation():
     print(Inflation)
     
 def filterDataCrime(query):
-    global specific_rows
-    specific_rows = Crime[Crime['Years'].str.contains(query)]
+    num = query[:4]
+    numint = int(num) - 2013
+    specific_rows = Crime.iloc[numint,0:2]
+    time.sleep(0.5)
+    print(specific_rows)
 
 def filterDataInflation(query):
-    Inflation.loc[query]
+    num = int(query[-2:])
+    floor = (num*4) - 64    
+    print(floor)
+    roof = (num*4) - 60
+    print(roof)
+    
+    specific_rows = Inflation.iloc[floor:roof,0:3]
+    print(specific_rows)

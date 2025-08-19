@@ -11,8 +11,9 @@ def main_menu():
         Value = True
         access = 1
     else:
-        Value = False
-        access = 0
+        pass
+        #Value = False
+        #access = 0
     
     while Value == True:
         print("\n=== Data Viewer Interface ===")

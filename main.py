@@ -10,14 +10,12 @@ def main_menu():
     
     
     Value = True
-    if permission ==  "U+1F511":
+    if permission ==  "1":
         Value = True
         access = 1
     else:
-        pass
-
-        #Value = False
-       # access = 0
+        Value = False
+        access = 0
     #Checks access
 
     while Value == True:
@@ -40,7 +38,7 @@ def main_menu():
     # Prints the options for the user
         time.sleep(1)
 
-        choice = input("Select an option (1-6): ").strip()
+        choice = input("Select an option (1-85): ").strip()
 
         if choice == '1':
             tableCrime()
@@ -56,7 +54,7 @@ def main_menu():
             graphBoth()
         elif choice == '6':
             try:
-                query = str(input("What year do you want to query, eg: 2013–14 - "))
+                query = str(input("What year do you want to query, eg: 2015–16 from 2015 to 2025 - "))
                 #Enters the year as shown in the example
                 filterDataCrime(query)
             except:
@@ -64,7 +62,7 @@ def main_menu():
                 #checks if the value can be inputted without error; if it can't then it tries again
         elif choice == '7':
             try:
-                query = str(input("What year do you want to query, eg: 16 for 2016 - "))
+                query = str(input("What year do you want to query, eg: 16 for 2016 from 2015 to 2025 - "))
                 #Enters the year as shown in the example
                 filterDataInflation(query)
             except:

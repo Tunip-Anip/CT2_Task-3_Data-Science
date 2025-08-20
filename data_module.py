@@ -13,7 +13,7 @@ Crime[['Years', 'Crime(%)/House']]
 #Sets the datasets as a variable
 
 def graphInflation():
-    global Inflation
+    Inflation
     Inflation.plot(
         kind='bar',
         x='Quarter',
@@ -30,7 +30,7 @@ def graphInflation():
 
 
 def graphCrime():
-    global Crime
+    Crime
     Crime.plot(
             kind='bar',
             x='Years',
@@ -52,7 +52,7 @@ def tableInflation():
 def filterDataCrime(query):
     num = query[:4]
     #Takes the first four characters of the inputted number which is the year.
-    numint = int(num) - 2013
+    numint = int(num) - 2015
     #The inputed year minus 2013 is the row number
     specific_rows = Crime.iloc[numint,0:2]
     #Sets the filtered row into a variable from the row and column
@@ -63,17 +63,21 @@ def filterDataCrime(query):
 def filterDataInflation(query):
     num = int(query[-2:])
     #from the inputted number takes the last two integers (which is also the year)
-    floor = (num*4) - 64    
+    floor = (num*4) - 61    
     #Gets the lower range of numbers  from the year as each year contains 4 quarters Tthe 2nd row is the lowest in 2016)
-    roof = (num*4) - 60
+    roof = (num*4) - 57
     #Gets the highest number in the range as each year contains 4 quarters (The 5th row is the highest of 2016)
     specific_rows = Inflation.iloc[floor:roof,0:3]
     #Sets the filtered row into a variable from the row and column
     print(specific_rows)
      #Prints the variable
 def graphBoth():
-    global Inflation
-    global Crime
+    Inflation = pd.read_csv('Inflation.csv')
+    Inflation[['Quarter', 'Annual change (%)']]
+    
+    Crime = pd.read_csv('Crime_Rate.csv')
+    Crime[['Years', 'Crime(%)/House']]
+    
     Crimex = Crime['Years']
     Crimey = Crime['Crime(%)/House']
     Inflationx = Inflation['Quarter']
@@ -89,7 +93,11 @@ def graphBoth():
     Crime.set_ylabel("Crime(%)/House", color="C0")
     Crime.tick_params(axis='x', colors="C0")
     Crime.tick_params(axis='y', colors="C0")
-
+    Crime.set_title("Affect\n of Inflation \non Crime\n Rates",fontsize = 10)
+    ttl = Crime.title
+    ttl.set_position([-0.01, 1.05])
+    
+    
     Inflation.plot(Inflationx,Inflationy,color="C1")
     Inflation.xaxis.tick_top()
     Inflation.yaxis.tick_right()
@@ -99,6 +107,7 @@ def graphBoth():
     Inflation.yaxis.set_label_position('right') 
     Inflation.tick_params(axis='x', colors="C1")
     Inflation.tick_params(axis='y', colors="C1")
+    Inflation.tick_params(axis='x', labelrotation=90)
 
     
 

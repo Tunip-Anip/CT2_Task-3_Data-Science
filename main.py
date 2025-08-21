@@ -10,7 +10,7 @@ def main_menu():
     
     
     Value = True
-    if permission ==  "1":
+    if permission ==  "U+1F511":
         Value = True
         access = 1
     else:

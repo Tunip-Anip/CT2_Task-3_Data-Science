@@ -77,15 +77,16 @@ def graphBoth():
     
     Crime = pd.read_csv('Crime_Rate.csv')
     Crime[['Years', 'Crime(%)/House']]
-    
+    # Assigns the Crime Dataset and Inflation Dataset to variables
     Crimex = Crime['Years']
     Crimey = Crime['Crime(%)/House']
     Inflationx = Inflation['Quarter']
     Inflationy = Inflation['Annual change (%)']
-
+    #Seperates the X and Y values of both datasets.
     fig=plt.figure()
     Crime=fig.add_subplot(111, label="1")
     Inflation=fig.add_subplot(111, label="2", frame_on=False)
+    #Identifies the graphs constrains/ properties
     
 
     Crime.plot(Crimex,Crimey,color="C0")
@@ -96,7 +97,7 @@ def graphBoth():
     Crime.set_title("Affect\n of Inflation \non Crime\n Rates",fontsize = 10)
     ttl = Crime.title
     ttl.set_position([-0.01, 1.05])
-    
+    #Sets the properties of the Crime Data Plot
     
     Inflation.plot(Inflationx,Inflationy,color="C1")
     Inflation.xaxis.tick_top()
@@ -108,7 +109,7 @@ def graphBoth():
     Inflation.tick_params(axis='x', colors="C1")
     Inflation.tick_params(axis='y', colors="C1")
     Inflation.tick_params(axis='x', labelrotation=90)
-
+    #Sets the properties of the Inflation Data Plot
     
 
 
